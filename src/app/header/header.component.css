@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1%;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-home {
+    margin-right: 25%;
+}
+
+.container-title-section {
+    background-color: #BEBEBE;
+    font-weight: bolder;
+    padding: 15px;
+}
+
+.container-user {
+    background-color: #BEBEBE;
+    padding: 15px;
+}
