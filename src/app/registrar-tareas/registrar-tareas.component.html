@@ -1,0 +1,58 @@
+<div class="centered-wrapper">
+    <form class="form-tarea">
+
+        <div class="form-row">
+            <label>ALUMNO:</label>
+            <button type="button" class="btn btn-secondary w-100" id="buscar-alumno-btn">
+                Buscar alumno
+            </button>
+        </div>
+
+        <div class="form-row">
+            <label>SANCIÓN DEL ALUMNO:</label>
+            <div class="dropdown w-100">
+                <button class="btn btn-primary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+                    Selecciona una opción
+                </button>
+                <ul class="dropdown-menu w-100">
+                    <li><a class="dropdown-item">Sanción 1</a></li>
+                    <li><a class="dropdown-item">Sanción 2</a></li>
+                    <li><a class="dropdown-item">Sanción 3</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label for="fecha-creacion">FECHA DE CREACIÓN:</label>
+            <input class="form-control" type="date" name="fecha-creacion" id="fecha-creacion">
+        </div>
+
+        <div class="form-row">
+            <label for="fecha-limite">FECHA LÍMITE</label>
+            <input class="form-control" type="date" name="fecha-limite" id="fecha-limite">
+        </div>
+
+        <div class="form-row">
+            <label>ESTADO:</label>
+            <div class="dropdown w-100">
+                <button class="btn btn-primary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+                    Selecciona una opción
+                </button>
+                <ul class="dropdown-menu w-100">
+                    <li><a class="dropdown-item">COMPLETADA</a></li>
+                    <li><a class="dropdown-item">EN PROGRESO</a></li>
+                    <li><a class="dropdown-item">PENDIENTE</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label for="descripcion">DESCRIPCIÓN</label>
+            <textarea class="form-control" name="descripcion" id="descripcion" placeholder="Escribe una descripcion...">
+
+            </textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">REGISTRAR TAREA</button>
+    </form>
+</div>

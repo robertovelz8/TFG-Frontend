@@ -1,0 +1,48 @@
+<div class="form-row">
+    <div class="mb-3 d-flex align-items-center gap-3">
+        <label class="fw-bold">ALUMNO:</label>
+        <button type="button" class="btn btn-secondary btn-sm" id="buscar-alumno-btn">
+            Buscar alumno
+        </button>
+    </div>
+    <div class="table-responsive mt-4">
+        <table class="table table-bordered table-hover text-center align-middle rounded-table">
+            <thead class="table-dark">
+                <tr>
+                    <th>Fecha</th>
+                    <th>Tipo de Sanción</th>
+                    <th>Duración</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2025-05-09</td>
+                    <td>Expulsión en centro</td>
+                    <td>3 días</td>
+                    <td>
+                        <button type="button" class="btn btn-warning" style="margin-right: 3%;" [routerLink]="['/modificar-sancion']">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button type="button" class="btn btn-primary" [routerLink]="['/consultar-sancion']">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2025-05-07</td>
+                    <td>Sin expulsión</td>
+                    <td>1 día</td>
+                    <td>
+                        <button type="button" class="btn btn-warning" style="margin-right: 3%;" [routerLink]="['/modificar-sancion']">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button type="button" class="btn btn-primary" [routerLink]="['/consultar-sancion']">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

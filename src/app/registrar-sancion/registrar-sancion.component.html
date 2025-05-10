@@ -1,8 +1,13 @@
-<form class="form-sancion" style="margin-right: 50%;">
-    <h2 class="title-register-sancion text-center fw-bold">
-      REGISTRAR SANCIÓN
-    </h2>
-  
+<div class="centered-wrapper">
+  <form class="form-sancion">
+
+    <div class="form-row">
+      <label>ALUMNO:</label>
+      <button type="button" class="btn btn-secondary w-100" id="buscar-alumno-btn">
+        Buscar alumno
+      </button>
+    </div>
+
     <div class="form-row">
       <label for="fecha">FECHA DE SANCIÓN:</label>
       <input class="form-control" type="date" name="fecha" id="fecha">
@@ -54,12 +59,8 @@
         </ul>
       </div>
     </div>
-  
-    <div class="form-row">
-      <label for="descripcion">DESCRIPCIÓN:</label>
-      <textarea class="form-control" name="descripcion" id="descripcion" placeholder="Escribe una descripción..."></textarea>
-    </div>
-  
     <button type="submit" class="btn btn-primary mt-3">REGISTRAR SANCIÓN</button>
   </form>
+</div>
+
   

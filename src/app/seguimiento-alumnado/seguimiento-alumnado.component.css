@@ -1,13 +1,13 @@
 .content-casos-de-uso {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
     height: 100%;
     grid: 5%;
 }
 
 button {
-    min-height: 130px;
-    text-align: center;
-    padding: 30px;
-}
+    max-height: 150px !important; 
+    padding: 15px !important;     
+    font-size: 0.95rem !important; 
+  }
+  

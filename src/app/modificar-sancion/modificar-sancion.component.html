@@ -1,0 +1,44 @@
+<div class="centered-wrapper">
+    <form class="form-sancion">
+
+        <div class="form-row">
+            <label for="fecha">FECHA DE SANCIÓN:</label>
+            <input class="form-control" type="date" name="fecha" id="fecha">
+        </div>
+
+        <div class="form-row">
+            <label for="duracion">DURACIÓN:</label>
+            <input class="form-control" type="text" name="duracion" id="duracion">
+        </div>
+
+        <div class="form-row">
+            <label>TIPO DE SANCIÓN:</label>
+            <div class="dropdown w-100">
+                <button class="btn btn-primary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+                    Selecciona una opción
+                </button>
+                <ul class="dropdown-menu w-100">
+                    <li><a class="dropdown-item">EXPULSIÓN EN CENTRO</a></li>
+                    <li><a class="dropdown-item">EXPULSIÓN FUERA DEL CENTRO</a></li>
+                    <li><a class="dropdown-item">SIN EXPULSIÓN</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label>TAREAS ASOCIADAS:</label>
+            <div class="dropdown w-100">
+                <button class="btn btn-primary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+                    Selecciona una opción
+                </button>
+                <ul class="dropdown-menu w-100">
+                    <li><a class="dropdown-item">Tarea 1</a></li>
+                    <li><a class="dropdown-item">Tarea 2</a></li>
+                    <li><a class="dropdown-item">Tarea 3</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">MODIFICAR SANCIÓN</button>
+    </form>
+</div>
