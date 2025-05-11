@@ -1,58 +1,59 @@
 <div class="centered-wrapper" style="width: 90%;">
     <form class="form-tarea">
 
-        <div class="form-row">
-            <label>ALUMNO:</label>
-            <button type="button" class="btn btn-secondary w-100" id="buscar-alumno-btn">
+        <div class="mb-3">
+            <label for="buscar-alumno-btn" class="form-label">ALUMNO:</label>
+            <button type="button" class="btn btn-outline-primary w-100" id="buscar-alumno-btn">
                 Buscar alumno
             </button>
         </div>
 
-        <div class="form-row">
-            <label>SANCIÓN DEL ALUMNO:</label>
-            <div class="dropdown w-100">
-                <button class="btn btn-primary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+        <div class="mb-3">
+            <label class="form-label">SANCIÓN DEL ALUMNO:</label>
+            <div class="dropdown">
+                <button class="btn btn-outline-primary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
                     Selecciona una opción
                 </button>
                 <ul class="dropdown-menu w-100">
-                    <li><a class="dropdown-item">Sanción 1</a></li>
-                    <li><a class="dropdown-item">Sanción 2</a></li>
-                    <li><a class="dropdown-item">Sanción 3</a></li>
+                    <li><a class="dropdown-item" href="#">Sanción 1</a></li>
+                    <li><a class="dropdown-item" href="#">Sanción 2</a></li>
+                    <li><a class="dropdown-item" href="#">Sanción 3</a></li>
                 </ul>
             </div>
         </div>
 
-        <div class="form-row">
-            <label for="fecha-creacion">FECHA DE CREACIÓN:</label>
+        <div class="mb-3">
+            <label for="fecha-creacion" class="form-label">FECHA DE CREACIÓN:</label>
             <input class="form-control" type="date" name="fecha-creacion" id="fecha-creacion">
         </div>
 
-        <div class="form-row">
-            <label for="fecha-limite">FECHA LÍMITE</label>
+        <div class="mb-3">
+            <label for="fecha-limite" class="form-label">FECHA LÍMITE:</label>
             <input class="form-control" type="date" name="fecha-limite" id="fecha-limite">
         </div>
 
-        <div class="form-row">
-            <label>ESTADO:</label>
-            <div class="dropdown w-100">
-                <button class="btn btn-primary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+        <div class="mb-3">
+            <label class="form-label">ESTADO:</label>
+            <div class="dropdown">
+                <button class="btn btn-outline-primary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
                     Selecciona una opción
                 </button>
                 <ul class="dropdown-menu w-100">
-                    <li><a class="dropdown-item">COMPLETADA</a></li>
-                    <li><a class="dropdown-item">EN PROGRESO</a></li>
-                    <li><a class="dropdown-item">PENDIENTE</a></li>
+                    <li><a class="dropdown-item" href="#">COMPLETADA</a></li>
+                    <li><a class="dropdown-item" href="#">EN PROGRESO</a></li>
+                    <li><a class="dropdown-item" href="#">PENDIENTE</a></li>
                 </ul>
             </div>
         </div>
 
-        <div class="form-row">
-            <label for="descripcion">DESCRIPCIÓN</label>
-            <textarea class="form-control" name="descripcion" id="descripcion" placeholder="Escribe una descripcion...">
-
-            </textarea>
+        <div class="mb-3">
+            <label for="descripcion" class="form-label">DESCRIPCIÓN:</label>
+            <textarea class="form-control" name="descripcion" id="descripcion" rows="3"
+                placeholder="Escribe una descripción..."></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary mt-3">REGISTRAR TAREA</button>
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary">REGISTRAR TAREA</button>
+        </div>
     </form>
 </div>

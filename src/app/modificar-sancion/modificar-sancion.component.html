@@ -1,44 +1,39 @@
 <div class="centered-wrapper" style="width: 90%;">
-    <form class="form-sancion">
+  <form class="form-sancion">
 
-        <div class="form-row">
-            <label for="fecha">FECHA DE SANCIÓN:</label>
-            <input class="form-control" type="date" name="fecha" id="fecha">
-        </div>
+    <div class="mb-3">
+      <label for="buscar-alumno-btn" class="form-label">ALUMNO:</label>
+      <button type="button" class="btn btn-outline-primary w-100" id="buscar-alumno-btn">
+        Buscar alumno
+      </button>
+    </div>
 
-        <div class="form-row">
-            <label for="duracion">DURACIÓN:</label>
-            <input class="form-control" type="text" name="duracion" id="duracion">
-        </div>
+    <div class="mb-3">
+      <label for="fecha" class="form-label">FECHA DE SANCIÓN:</label>
+      <input class="form-control" type="date" name="fecha" id="fecha">
+    </div>
 
-        <div class="form-row">
-            <label>TIPO DE SANCIÓN:</label>
-            <div class="dropdown w-100">
-                <button class="btn btn-primary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
-                    Selecciona una opción
-                </button>
-                <ul class="dropdown-menu w-100">
-                    <li><a class="dropdown-item">EXPULSIÓN EN CENTRO</a></li>
-                    <li><a class="dropdown-item">EXPULSIÓN FUERA DEL CENTRO</a></li>
-                    <li><a class="dropdown-item">SIN EXPULSIÓN</a></li>
-                </ul>
-            </div>
-        </div>
+    <div class="mb-3">
+      <label for="duracion" class="form-label">DURACIÓN:</label>
+      <input class="form-control" type="text" name="duracion" id="duracion" placeholder="Ingrese la duración">
+    </div>
 
-        <div class="form-row">
-            <label>TAREAS ASOCIADAS:</label>
-            <div class="dropdown w-100">
-                <button class="btn btn-primary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
-                    Selecciona una opción
-                </button>
-                <ul class="dropdown-menu w-100">
-                    <li><a class="dropdown-item">Tarea 1</a></li>
-                    <li><a class="dropdown-item">Tarea 2</a></li>
-                    <li><a class="dropdown-item">Tarea 3</a></li>
-                </ul>
-            </div>
-        </div>
+    <div class="mb-3">
+      <label class="form-label">TIPO DE SANCIÓN:</label>
+      <div class="dropdown">
+        <button class="btn btn-outline-primary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+          Selecciona una opción
+        </button>
+        <ul class="dropdown-menu w-100">
+          <li><a class="dropdown-item" href="#">EXPULSIÓN EN CENTRO</a></li>
+          <li><a class="dropdown-item" href="#">EXPULSIÓN FUERA DEL CENTRO</a></li>
+          <li><a class="dropdown-item" href="#">SIN EXPULSIÓN</a></li>
+        </ul>
+      </div>
+    </div>
 
-        <button type="submit" class="btn btn-primary mt-3">MODIFICAR SANCIÓN</button>
-    </form>
+    <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-primary">MODIFICAR SANCIÓN</button>
+    </div>
+  </form>
 </div>

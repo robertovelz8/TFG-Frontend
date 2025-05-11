@@ -1,22 +1,24 @@
-<div class="header">
-    <div class="container-img">
+<div class="header d-flex align-items-center justify-content-between p-3 shadow-sm rounded mb-3 bg-white">
+    <div class="d-flex align-items-center gap-3">
         <a href="https://blogsaverroes.juntadeandalucia.es/iestorrredelosguzmanes/">
-            <img src="../../assets/imgs/logo-instituto.png">
+            <img src="../../assets/imgs/logo-instituto.png" class="logo-header" alt="Logo instituto">
         </a>
     </div>
-    <div class="controls">
+
+    <div class="d-flex align-items-center gap-4 controls">
         <div class="container-home">
-            <img src="../../assets/imgs/Home.png" style="cursor: pointer;">
+            <img src="../../assets/imgs/Home.png" class="icon-header" alt="Inicio">
         </div>
-        <div class="container-back ">
-            <img src="../../assets/imgs/Volver.png" (click)="volverAtras()" style="cursor: pointer;">
+        <div class="container-back">
+            <img src="../../assets/imgs/Volver.png" class="icon-header" alt="Volver" (click)="volverAtras()">
         </div>
     </div>
 
-    <div class="container-title-section">
+    <div class="container-title-section text-center px-4 py-2 fw-bold rounded">
         {{title}}
     </div>
-    <div class="container-user">
+
+    <div class="container-user text-end px-4 py-2 rounded">
         USUARIO: {{user}}
     </div>
 </div>
