@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { PartesModalComponent } from './partes-modal/partes-modal.component';
 import { TareasModalComponent } from './tareas-modal/tareas-modal.component';
 import { ModalDetalleSancionComponent } from './modal-detalle-sancion/modal-detalle-sancion.component';
+import { ModalSancionComponent } from './modal-sancion/modal-sancion.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ModalDetalleSancionComponent } from './modal-detalle-sancion/modal-deta
     AlumnosModalComponent,
     PartesModalComponent,
     TareasModalComponent,
-    ModalDetalleSancionComponent
+    ModalDetalleSancionComponent,
+    ModalSancionComponent
   ],
   imports: [
     BrowserModule,

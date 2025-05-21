@@ -10,7 +10,7 @@ import { ConsultarTareasAlumnoExpulsadoComponent } from './consultar-tareas-alum
 const routes: Routes = [
   {path: 'seguimiento', component: SeguimientoAlumnadoComponent},
   {path: 'registrar-sancion', component: RegistrarSancionComponent},
-  {path: 'modificar-sancion', component: ModificarSancionComponent},
+  {path: 'modificar-sancion/:id', component: ModificarSancionComponent},
   {path: 'consultar-sanciones', component: ConsultarSancionesComponent},
   {path: 'registrar-tarea', component: RegistrarTareasComponent},
   {path: 'consultar-tareas-alumno-expulsado', component: ConsultarTareasAlumnoExpulsadoComponent}

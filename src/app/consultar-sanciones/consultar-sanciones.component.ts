@@ -5,6 +5,7 @@ import { Sancion } from '../interfaces/sancion';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { Alumno } from '../interfaces/alumno';
 import { ModalDetalleSancionComponent } from '../modal-detalle-sancion/modal-detalle-sancion.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-consultar-sanciones',
@@ -20,7 +21,7 @@ export class ConsultarSancionesComponent {
   hayAlumno = false;
   alumno = {} as Alumno;
   sancion = {} as Sancion;
-  constructor(private sancionService: SancionService, private modalService: MdbModalService) {
+  constructor(private sancionService: SancionService, private modalService: MdbModalService, private router: Router) {
   }
 
   abrirModalAlumno(): void {
@@ -38,8 +39,9 @@ export class ConsultarSancionesComponent {
     });
   }
 
-  abrirModalDetalleSancion(): void {
+  abrirModalDetalleSancion(sancion: Sancion): void {
     this.modalRefADetalleSancion = this.modalService.open(ModalDetalleSancionComponent, {
+      data: { id: sancion.id },
       modalClass: 'modal-lg modal-dialog-centered'
     });
     this.modalRefADetalleSancion.onClose.subscribe((idSancion: number) => {
@@ -52,5 +54,8 @@ export class ConsultarSancionesComponent {
     });
   }
 
+  editarSancion(sancion: Sancion) {
+  this.router.navigate(['/modificar-sancion'], { state: { sancion } });
+}
 
 }

@@ -4,7 +4,6 @@
 </div>
 
 <div class="modal-body scroll-body">
-    <!-- Cuadro de búsqueda -->
     <div class="mb-3">
         <input type="text" class="form-control" placeholder="Buscar parte por motivo o lugar" [(ngModel)]="busqueda"
             (input)="filtrarPartes()" />
@@ -13,7 +12,7 @@
     <ul class="list-group">
         <li *ngFor="let parte of partesFiltrados" class="list-group-item list-group-item-action"
             style="cursor: pointer;" [class.active]="parte === parteSeleccionado" (click)="seleccionarParte(parte)">
-            {{ parte.motivo }} {{parte.lugar}}
+            {{ parte.motivo }} - {{parte.lugar}}
         </li>
     </ul>
 </div>

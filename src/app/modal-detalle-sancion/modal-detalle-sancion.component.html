@@ -7,49 +7,47 @@
 </div>
 
 <div class="modal-body pt-0">
-    <div class="card border-0 shadow-sm rounded-4 mt-3">
+    <div class="card border-0 shadow-sm rounded-4 mt-3 scroll-body">
         <div class="card-body">
 
             <ul class="list-group list-group-flush">
                 <li class="list-group-item d-flex justify-content-between">
                     <span class="fw-semibold text-muted">📅 Fecha:</span>
-                    <span>{{sancion.fecha | date: "fullDate"}}</span>
+                    <span>{{sancion.fecha | date: "shortDate"}}</span>
                 </li>
 
                 <li class="list-group-item d-flex justify-content-between">
                     <span class="fw-semibold text-muted">⚠️ Tipo de Sanción:</span>
-                    <span>Tipo de Sanción</span>
+                    <span>{{sancion.tipoSancion}}</span>
                 </li>
 
                 <li class="list-group-item d-flex justify-content-between">
                     <span class="fw-semibold text-muted">⏱️ Duración:</span>
-                    <span>Duración</span>
+                    <span>{{sancion.duracion}}</span>
                 </li>
 
                 <li class="list-group-item d-flex justify-content-between">
-                    <span class="fw-semibold text-muted">👨‍🏫 Docente responsable:</span>
-                    <span>Docente</span>
-                </li>
-
-                <li class="list-group-item d-flex justify-content-between">
-                    <span class="fw-semibold text-muted">📄 Motivo:</span>
-                    <p class="mb-0 mt-1">Motivo</p>
-                </li>
-
-                <li class="list-group-item d-flex justify-content-between">
-                    <span class="fw-semibold text-muted">📝 Alumno:</span>
-                    <p class="mb-0 mt-1 fst-italic text-muted">Alumno</p>
+                    <span class="fw-semibold text-muted">👨‍🎓 Alumno sancionado:</span>
+                    <span>{{sancion.alumno.nombre}} {{sancion.alumno.apellidos}}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between">
-                    <span class="fw-semibold text-muted">📝 Parte:</span>
-                    <p class="mb-0 mt-1 fst-italic text-muted">Parte</p>
+                    <span class="fw-semibold text-muted">📝 Motivo de Parte:</span>
+                    <p class="mb-0 mt-1 fst-italic text-muted">{{sancion.parte.motivo}}</p>
                 </li>
-                <li class="list-group-item d-flex justify-content-between">
-                    <span class="fw-semibold text-muted">📝 Tareas:</span>
-                    <p class="mb-0 mt-1 fst-italic text-muted">Tareas</p>
+                <li class="list-group-item">
+                    <div class="fw-semibold text-muted mb-2">📚 Tareas asociadas:</div>
+                    <ul class="list-group list-group-flush ps-3">
+                        <li *ngFor="let tarea of sancion.tareas"
+                            class="list-group-item px-0 border-0 fst-italic text-muted">
+                            - {{ tarea.titulo }}
+                        </li>
+                        <li *ngIf="!sancion.tareas || sancion.tareas.length === 0"
+                            class="list-group-item px-0 border-0 fst-italic text-muted">
+                            No hay tareas asociadas.
+                        </li>
+                    </ul>
                 </li>
             </ul>
-
         </div>
     </div>
 </div>

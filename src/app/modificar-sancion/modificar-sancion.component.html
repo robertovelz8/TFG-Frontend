@@ -1,33 +1,40 @@
 <div class="centered-wrapper" style="width: 100%;">
-  <form class="form-sancion">
-
-    <div class="mb-3">
-      <label for="buscar-alumno-btn" class="form-label">ALUMNO:</label>
-      <button type="button" class="btn btn-outline-primary w-100" id="buscar-alumno-btn">
-        Buscar alumno
-      </button>
+  <form class="form-sancion" (ngSubmit)="modificarSancion()" #sancionForm="ngForm">
+    <!-- Alumno -->
+    <div class="mb-4">
+      <label for="alumno" class="form-label fw-bold text-uppercase small">Alumno</label>
+      <input type="text" id="alumno" name="alumno" class="form-control-plaintext fw-semibold"
+        [value]="sancion.alumno.nombre + ' ' + sancion.alumno.apellidos" disabled>
     </div>
+
 
     <div class="mb-3">
       <label for="fecha" class="form-label">FECHA DE SANCIÓN:</label>
-      <input class="form-control" type="date" name="fecha" id="fecha">
+      <input class="form-control" type="date" name="fecha" id="fecha" [(ngModel)]="sancion.fecha">
     </div>
 
     <div class="mb-3">
       <label for="duracion" class="form-label">DURACIÓN:</label>
-      <input class="form-control" type="text" name="duracion" id="duracion" placeholder="Ingrese la duración">
+      <input class="form-control" type="text" name="duracion" id="duracion" placeholder="Ingrese la duración"
+        [(ngModel)]="sancion.duracion">
     </div>
+
 
     <div class="mb-3">
       <label class="form-label">TIPO DE SANCIÓN:</label>
       <div class="dropdown">
-        <button class="btn btn-outline-primary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
-          Selecciona una opción
+        <button class="btn btn-outline-primary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          {{ getEtiquetaTipoSeleccionado() }}
         </button>
+
         <ul class="dropdown-menu w-100">
-          <li><a class="dropdown-item" href="#">EXPULSIÓN EN CENTRO</a></li>
-          <li><a class="dropdown-item" href="#">EXPULSIÓN FUERA DEL CENTRO</a></li>
-          <li><a class="dropdown-item" href="#">SIN EXPULSIÓN</a></li>
+          <li *ngFor="let tipo of tiposSancion">
+            <a class="dropdown-item"
+              (click)="seleccionarTipo(tipo.valor); sancion.tipoSancion = tipo.valor; $event.preventDefault()">
+              {{ tipo.etiqueta }}
+            </a>
+          </li>
         </ul>
       </div>
     </div>

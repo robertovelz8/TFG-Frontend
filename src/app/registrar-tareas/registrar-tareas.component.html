@@ -1,47 +1,49 @@
 <div class="centered-wrapper" style="width: 100%;">
-    <form class="form-tarea">
-
+    <form class="form-tarea" (ngSubmit)="registrarTarea()" #tareaForm="ngForm">
         <div class="mb-3">
-            <label for="buscar-alumno-btn" class="form-label">ALUMNO:</label>
-            <button type="button" class="btn btn-outline-primary w-100" id="buscar-alumno-btn">
-                Buscar alumno
+            <label for="buscar-sancion-btn" class="form-label">SANCIÓN:</label>
+            <button type="button" class="btn btn-outline-primary w-100" id="buscar-sancion-btn"
+                (click)="abrirModalSancion()">
+                Buscar Sanción
             </button>
+            <p *ngIf="seleccionHechaSancion">Sanción seleccionada:
+                <span class="seleccion">
+                    {{sancion.tipoSancion}}
+                    {{sancion.fecha | date: 'shortDate'}}
+                </span>
+            </p>
         </div>
 
         <div class="mb-3">
-            <label class="form-label">SANCIÓN DEL ALUMNO:</label>
-            <div class="dropdown">
-                <button class="btn btn-outline-primary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
-                    Selecciona una opción
-                </button>
-                <ul class="dropdown-menu w-100">
-                    <li><a class="dropdown-item" href="#">Sanción 1</a></li>
-                    <li><a class="dropdown-item" href="#">Sanción 2</a></li>
-                    <li><a class="dropdown-item" href="#">Sanción 3</a></li>
-                </ul>
-            </div>
+            <label for="titulo" class="form-label">TÍTULO:</label>
+            <input class="form-control" type="text" name="titulo" id="titulo" placeholder="Ingrese el título" [(ngModel)]="tarea.titulo">
         </div>
 
         <div class="mb-3">
             <label for="fecha-creacion" class="form-label">FECHA DE CREACIÓN:</label>
-            <input class="form-control" type="date" name="fecha-creacion" id="fecha-creacion">
+            <input class="form-control" type="date" name="fecha-creacion" id="fecha-creacion" [(ngModel)]="tarea.fechaCreacion">
         </div>
 
         <div class="mb-3">
             <label for="fecha-limite" class="form-label">FECHA LÍMITE:</label>
-            <input class="form-control" type="date" name="fecha-limite" id="fecha-limite">
+            <input class="form-control" type="date" name="fecha-limite" id="fecha-limite" [(ngModel)]="tarea.fechaLimite">
         </div>
 
         <div class="mb-3">
             <label class="form-label">ESTADO:</label>
             <div class="dropdown">
-                <button class="btn btn-outline-primary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
-                    Selecciona una opción
+                <button class="btn btn-outline-primary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    {{ getEtiquetaEstadoSeleccionado() }}
                 </button>
+
                 <ul class="dropdown-menu w-100">
-                    <li><a class="dropdown-item" href="#">COMPLETADA</a></li>
-                    <li><a class="dropdown-item" href="#">EN PROGRESO</a></li>
-                    <li><a class="dropdown-item" href="#">PENDIENTE</a></li>
+                    <li *ngFor="let estado of estados">
+                        <a class="dropdown-item"
+                            (click)="seleccionarEstado(estado.valor); tarea.estado = estado.valor; $event.preventDefault()">
+                            {{ estado.etiqueta }}
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -49,7 +51,7 @@
         <div class="mb-3">
             <label for="descripcion" class="form-label">DESCRIPCIÓN:</label>
             <textarea class="form-control" name="descripcion" id="descripcion" rows="3"
-                placeholder="Escribe una descripción..."></textarea>
+                placeholder="Escribe una descripción..." [(ngModel)]="tarea.descripcion"></textarea>
         </div>
 
         <div class="d-grid gap-2">

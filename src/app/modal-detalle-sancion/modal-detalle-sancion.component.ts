@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { SancionService } from '../services/sancion.service';
 import { Sancion } from '../interfaces/sancion';
@@ -6,26 +6,33 @@ import { Sancion } from '../interfaces/sancion';
 @Component({
   selector: 'app-modal-detalle-sancion',
   templateUrl: './modal-detalle-sancion.component.html',
-  styleUrl: './modal-detalle-sancion.component.css'
+  styleUrls: ['./modal-detalle-sancion.component.css']
 })
-export class ModalDetalleSancionComponent implements OnInit{
+export class ModalDetalleSancionComponent implements OnInit {
 
+  @Input() id!: number;
   sancion = {} as Sancion;
 
-  constructor(private modalRef: MdbModalRef<ModalDetalleSancionComponent>, private sancionService: SancionService) {
+  constructor(
+    private modalRef: MdbModalRef<ModalDetalleSancionComponent>,
+    private sancionService: SancionService
+  ) {}
 
-  }
   ngOnInit(): void {
-    this.getSancionById(this.sancion.id!)
+    if (this.id) {
+      this.sancionService.getSancionById(this.id).subscribe(
+        data => {
+          this.sancion = data;
+        },
+        error => {
+          console.error('Error al obtener sanción:', error);
+        }
+      );
+    } else {
+      console.warn('No se proporcionó un ID de sanción al modal');
+    }
   }
-  getSancionById(idSancion: number): Sancion {
-    this.sancionService.getSancionById(idSancion).subscribe(
-      data => {
-        this.sancion = data;
-      }
-    )
-    return this.sancion
-  }
+
   cerrarModal(): void {
     this.modalRef.close();
   }
