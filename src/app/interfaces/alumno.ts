@@ -7,5 +7,5 @@ export interface Alumno {
     nombre_tutor_legal: string,
     apellidos_tutor_legal: string,
     email_tutor_legal: string,
-    sanciones: Sancion[];
+    sanciones?: Sancion[];
 }

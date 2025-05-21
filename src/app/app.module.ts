@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,9 @@ import { ConsultarSancionesComponent } from './consultar-sanciones/consultar-san
 import { ConsultarSancionComponent } from './consultar-sancion/consultar-sancion.component';
 import { RegistrarTareasComponent } from './registrar-tareas/registrar-tareas.component';
 import { ConsultarTareasAlumnoExpulsadoComponent } from './consultar-tareas-alumno-expulsado/consultar-tareas-alumno-expulsado.component';
+import { AlumnosModalComponent } from './alumnos-modal/alumnos-modal.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -24,11 +28,15 @@ import { ConsultarTareasAlumnoExpulsadoComponent } from './consultar-tareas-alum
     ConsultarSancionesComponent,
     ConsultarSancionComponent,
     RegistrarTareasComponent,
-    ConsultarTareasAlumnoExpulsadoComponent
+    ConsultarTareasAlumnoExpulsadoComponent,
+    AlumnosModalComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    MdbModalModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

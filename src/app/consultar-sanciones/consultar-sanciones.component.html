@@ -1,7 +1,7 @@
 <div class="form-row">
     <div class="mb-3 d-flex align-items-center gap-3">
         <label class="fw-bold">ALUMNO:</label>
-        <button type="button" class="btn btn-secondary btn-sm" id="buscar-alumno-btn">
+        <button type="button" class="btn btn-secondary btn-sm" id="buscar-alumno-btn" (click)="abrirModal()">
             Buscar alumno
         </button>
     </div>
@@ -16,24 +16,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>2025-05-09</td>
-                    <td>Expulsión en centro</td>
-                    <td>3 días</td>
-                    <td>
-                        <button type="button" class="btn btn-warning" style="margin-right: 3%;"
-                            [routerLink]="['/modificar-sancion']">
-                            <i class="fas fa-edit"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary" [routerLink]="['/consultar-sancion']">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2025-05-07</td>
-                    <td>Sin expulsión</td>
-                    <td>1 día</td>
+                <tr *ngFor="let sancion of sanciones; let i as index">
+                    <td>{{sancion.fecha | date: 'shortDate'}}</td>
+                    <td>{{sancion.tipoSancion}}</td>
+                    <td>{{sancion.duracion}}</td>
                     <td>
                         <button type="button" class="btn btn-warning" style="margin-right: 3%;"
                             [routerLink]="['/modificar-sancion']">

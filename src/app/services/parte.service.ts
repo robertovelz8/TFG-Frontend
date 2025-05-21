@@ -16,7 +16,7 @@ export class ParteService {
   }
 
   getParteById(idParte: number): Observable<Parte> {
-    return this.http.get<Parte>(`${environment.apiURL}/parte/${idParte}`)
+    return this.http.get<Parte>(`${environment.apiURL}/parte/${idParte}`);
   }
 
   

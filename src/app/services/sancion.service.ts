@@ -26,4 +26,8 @@ export class SancionService {
   updateSancion(idSancion: number, sancion: Sancion): Observable<Sancion> {
     return this.http.put<Sancion>(`${environment.apiURL}/sancion/${idSancion}`, sancion);
   }
+
+  deleteSancion(idSancion: number): Observable<any> {
+    return this.http.delete<any>(`${environment.apiURL}/sancion/${idSancion}`);
+  }
 }

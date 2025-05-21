@@ -1,5 +1,4 @@
 import { Alumno } from "./alumno";
-import { Parte } from "./parte";
 import { Tarea } from "./tarea";
 
 export interface Sancion {

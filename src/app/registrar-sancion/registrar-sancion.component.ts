@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { SancionService } from '../services/sancion.service';
+import { Sancion } from '../interfaces/sancion';
 
 @Component({
   selector: 'app-registrar-sancion',
@@ -7,4 +9,18 @@ import { Component } from '@angular/core';
 })
 export class RegistrarSancionComponent {
 
+  constructor(private sancionService: SancionService) {
+
+  }
+
+  createService(sancion: Sancion) {
+    this.sancionService.createSancion(sancion).subscribe({
+      next: (response) => {
+        console.log('Sanción registrada: '+ response)
+      },
+      error: (error) => {
+        console.error('Error al registrar la sanción: ', error);
+      }
+    })
+  }
 }
