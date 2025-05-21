@@ -15,8 +15,8 @@ export class AlumnoService {
     return this.http.post<Alumno>(`${environment.apiURL}/alumno`, alumno);
   }
 
-  getAlumnoById(idAlumno: Alumno): Observable<Alumno> {
-    return this.http.get<Alumno>(`${environment.apiURL}/sancion/${idAlumno}`)
+  getAlumnoById(dni: string): Observable<Alumno> {
+    return this.http.get<Alumno>(`${environment.apiURL}/alumno/${dni}`)
   }
 
   getAllAlumnos(): Observable<Alumno[]> {

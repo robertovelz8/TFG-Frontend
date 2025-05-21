@@ -1,0 +1,59 @@
+<!-- Modal de Detalle de la Sanción -->
+<div class="modal-header border-0 pb-0">
+    <h5 class="modal-title fw-bold">
+        📋 Detalle de la Sanción
+    </h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="cerrarModal()"></button>
+</div>
+
+<div class="modal-body pt-0">
+    <div class="card border-0 shadow-sm rounded-4 mt-3">
+        <div class="card-body">
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between">
+                    <span class="fw-semibold text-muted">📅 Fecha:</span>
+                    <span>{{sancion.fecha | date: "fullDate"}}</span>
+                </li>
+
+                <li class="list-group-item d-flex justify-content-between">
+                    <span class="fw-semibold text-muted">⚠️ Tipo de Sanción:</span>
+                    <span>Tipo de Sanción</span>
+                </li>
+
+                <li class="list-group-item d-flex justify-content-between">
+                    <span class="fw-semibold text-muted">⏱️ Duración:</span>
+                    <span>Duración</span>
+                </li>
+
+                <li class="list-group-item d-flex justify-content-between">
+                    <span class="fw-semibold text-muted">👨‍🏫 Docente responsable:</span>
+                    <span>Docente</span>
+                </li>
+
+                <li class="list-group-item d-flex justify-content-between">
+                    <span class="fw-semibold text-muted">📄 Motivo:</span>
+                    <p class="mb-0 mt-1">Motivo</p>
+                </li>
+
+                <li class="list-group-item d-flex justify-content-between">
+                    <span class="fw-semibold text-muted">📝 Alumno:</span>
+                    <p class="mb-0 mt-1 fst-italic text-muted">Alumno</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span class="fw-semibold text-muted">📝 Parte:</span>
+                    <p class="mb-0 mt-1 fst-italic text-muted">Parte</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span class="fw-semibold text-muted">📝 Tareas:</span>
+                    <p class="mb-0 mt-1 fst-italic text-muted">Tareas</p>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer border-0">
+    <button type="button" class="btn btn-outline-secondary" (click)="cerrarModal()">Cerrar</button>
+</div>

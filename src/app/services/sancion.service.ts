@@ -30,4 +30,8 @@ export class SancionService {
   deleteSancion(idSancion: number): Observable<any> {
     return this.http.delete<any>(`${environment.apiURL}/sancion/${idSancion}`);
   }
+
+  getAllSancionesByAlumno(dni: string): Observable<Sancion[]> {
+    return this.http.get<Sancion[]>(`${environment.apiURL}/sancion/alumno/${dni}`)
+  }
 }

@@ -1,4 +1,5 @@
 import { Time } from "@angular/common";
+import { Sancion } from "./sancion";
 
 export interface Parte {
     id?: number,
@@ -6,5 +7,6 @@ export interface Parte {
     fecha: Date,
     hora: Time,
     descripcion: string,
-    lugar: string
+    lugar: string,
+    sancion?: Sancion
 }

@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <h5 class="modal-title">Seleccionar parte</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="cerrarModal()"></button>
+</div>
+
+<div class="modal-body scroll-body">
+    <!-- Cuadro de búsqueda -->
+    <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Buscar parte por motivo o lugar" [(ngModel)]="busqueda"
+            (input)="filtrarPartes()" />
+    </div>
+
+    <ul class="list-group">
+        <li *ngFor="let parte of partesFiltrados" class="list-group-item list-group-item-action"
+            style="cursor: pointer;" [class.active]="parte === parteSeleccionado" (click)="seleccionarParte(parte)">
+            {{ parte.motivo }} {{parte.lugar}}
+        </li>
+    </ul>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Cerrar</button>
+    <button type="button" class="btn btn-primary" (click)="confirmarSeleccion()">Seleccionar parte</button>
+</div>

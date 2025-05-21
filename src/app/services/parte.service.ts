@@ -19,6 +19,8 @@ export class ParteService {
     return this.http.get<Parte>(`${environment.apiURL}/parte/${idParte}`);
   }
 
-  
+  getAllPartes(): Observable<Parte[]> {
+    return this.http.get<Parte[]>(`${environment.apiURL}/parte`)
+  }
       
 }

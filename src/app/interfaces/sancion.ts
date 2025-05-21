@@ -1,4 +1,5 @@
 import { Alumno } from "./alumno";
+import { Parte } from "./parte";
 import { Tarea } from "./tarea";
 
 export interface Sancion {
@@ -8,8 +9,5 @@ export interface Sancion {
     duracion: string,
     tareas: Tarea[],
     alumno: Alumno,
-    parte: {
-        id: number,
-        motivo: string
-    }
+    parte: Parte
 }
