@@ -49,13 +49,13 @@ export class ConsultarSancionesComponent {
         this.sancionService.getSancionById(idSancion).subscribe(
           data => {
             this.sancion = data;
-        })
+          })
       }
     });
   }
 
   editarSancion(sancion: Sancion) {
-  this.router.navigate(['/modificar-sancion'], { state: { sancion } });
-}
+    this.router.navigate(['/modificar-sancion'], { state: { sancion } });
+  }
 
 }

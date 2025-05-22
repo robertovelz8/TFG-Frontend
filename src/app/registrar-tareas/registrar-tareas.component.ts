@@ -4,6 +4,7 @@ import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { Sancion } from '../interfaces/sancion';
 import { Tarea } from '../interfaces/tarea';
 import { TareaService } from '../services/tarea.service';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-registrar-tareas',
@@ -69,12 +70,12 @@ export class RegistrarTareasComponent implements OnInit {
 
   registrarTarea(): void {
     if (!this.seleccionHechaSancion || !this.estadoSeleccionado
-      || !this.tarea.fechaCreacion || !this.tarea.titulo
+      || !this.tarea.titulo
       || !this.tarea.fechaLimite || !this.tarea.descripcion) {
       alert("Por favor, completa todos los campos obligatorios.");
       return;
     }
-
+    
     this.createTarea(this.tarea);
   }
 }

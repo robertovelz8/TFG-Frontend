@@ -12,16 +12,29 @@ export class ModalSancionComponent implements OnInit {
   sanciones: Sancion[] = [];
   sancionesFiltradas: Sancion[] = [];
   sancionSeleccionada: Sancion | null = null;
+  busqueda: string = '';
 
   constructor(private modalRef: MdbModalRef<ModalSancionComponent>, private sancionService: SancionService) {
 
   }
   ngOnInit(): void {
     this.sancionService.getAllSanciones().subscribe(data => {
-      this.sanciones = data.filter(sancion => !sancion.tareas || sancion.tareas.length === 0);
+      this.sanciones = data.filter(sancion => {
+        return sancion.tipoSancion !== 'SIN_EXPULSION'
+      });
       this.sancionesFiltradas = [...this.sanciones];
     });
   }
+
+  filtrarSanciones(): void {
+    const filtro = this.busqueda.toLowerCase().trim();
+
+    this.sancionesFiltradas = this.sanciones.filter(sancion => {
+      const fechaFormateada = new Date(sancion.fecha).toLocaleDateString('es-ES');
+      return fechaFormateada.includes(filtro);
+    });
+  }
+
 
   seleccionarSancion(sancion: Sancion): void {
     this.sancionSeleccionada = sancion;

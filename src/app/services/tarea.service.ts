@@ -14,4 +14,9 @@ export class TareaService {
   createTarea(tarea: Tarea): Observable<Tarea> {
     return this.http.post<Tarea>(`${environment.apiURL}/tarea`, tarea)
   }
+
+  getTareasAlumnoExpulsado(dni: string): Observable<Tarea[]> {
+    return this.http.get<Tarea[]>(`${environment.apiURL}/tarea/tareas-alumno-expulsado/${dni}`)
+  }
+
 }

@@ -29,12 +29,12 @@ ngOnInit(): void {
         error: (err) => {
           console.error('Error al cargar la sanción:', err);
           alert('No se pudo cargar la sanción');
-          this.router.navigate(['/sanciones']);
+          this.router.navigate(['/consultar-sanciones']);
         }
       });
     } else {
       console.error('ID de sanción no válido');
-      this.router.navigate(['/sanciones']);
+      this.router.navigate(['/consultar-sanciones']);
     }
   });
 }
@@ -64,7 +64,6 @@ ngOnInit(): void {
 
   this.sancionService.updateSancion(this.sancion.id, this.sancion).subscribe({
     next: (data) => {
-      console.log('Sanción actualizada:', data);
       alert('Sanción modificada correctamente');
       this.router.navigate(['/consultar-sanciones']); 
     },

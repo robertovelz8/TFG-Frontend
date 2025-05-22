@@ -4,10 +4,14 @@
 </div>
 
 <div class="modal-body scroll-body">
+    <div class="mb-3">
+    <input type="text" class="form-control" placeholder="Buscar por fecha (ej: 21/05/2025)" [(ngModel)]="busqueda"
+      (input)="filtrarSanciones()" />
+  </div>
     <ul class="list-group">
-        <li *ngFor="let sancion of sanciones" class="list-group-item list-group-item-action"
+        <li *ngFor="let sancion of sancionesFiltradas" class="list-group-item list-group-item-action"
             style="cursor: pointer;" [class.active]="sancion === sancionSeleccionada" (click)="seleccionarSancion(sancion)">
-            {{ sancion.tipoSancion }} - {{sancion.fecha | date: 'shortDate'}}
+            {{ sancion.tipoSancion }} - {{sancion.fecha | date: 'dd/MM/yyyy'}} ({{sancion.parte.motivo}})
         </li>
     </ul>
 </div>

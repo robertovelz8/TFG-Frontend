@@ -1,4 +1,3 @@
-/* Botón de buscar alumno: verde moderno con efecto hover */
 .btn-alumno {
     background-color: #198754;
     color: #fff;
@@ -12,7 +11,7 @@
     color: #fff;
 }
 
-/* Estilo más moderno para la tabla */
+
 .table-modern {
     border-collapse: separate;
     border-spacing: 0;

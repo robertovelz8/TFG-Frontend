@@ -5,7 +5,7 @@ export interface Tarea {
     titulo: string,
     descripcion: string,
     estado: string,
-    fechaCreacion: Date,
+    fechaCreacion?: Date
     fechaLimite: Date,
     sancion: Sancion
 }

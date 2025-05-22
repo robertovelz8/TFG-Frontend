@@ -12,15 +12,15 @@ export class ParteService {
   constructor(private http: HttpClient) { }
 
   createParte(parte: Parte): Observable<Parte> {
-    return this.http.post<Parte>(`${environment.apiURL}/parte`, parte);
+    return this.http.post<Parte>(`${environment.apiURL}/conducta/parte`, parte);
   }
 
   getParteById(idParte: number): Observable<Parte> {
-    return this.http.get<Parte>(`${environment.apiURL}/parte/${idParte}`);
+    return this.http.get<Parte>(`${environment.apiURL}/conducta/parte/${idParte}`);
   }
 
   getAllPartes(): Observable<Parte[]> {
-    return this.http.get<Parte[]>(`${environment.apiURL}/parte`)
+    return this.http.get<Parte[]>(`${environment.apiURL}/conducta/parte`)
   }
-      
+
 }

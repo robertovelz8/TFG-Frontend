@@ -1,8 +1,29 @@
-.rounded-table {
-    border-radius: 0.5rem;
-    overflow: hidden;
+.btn-alumno {
+    background-color: #198754;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease;
+    border-radius: 0.375rem;
 }
 
-th {
-    white-space: nowrap;
+.btn-alumno:hover {
+    background-color: #157347;
+    color: #fff;
+}
+
+.table-modern {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.05);
+}
+
+.table-modern th,
+.table-modern td {
+    padding: 1rem;
+}
+
+.table-modern tbody tr:hover {
+    background-color: #f9f9f9;
 }

@@ -12,14 +12,14 @@ export class AlumnoService {
   constructor(private http: HttpClient) { }
 
   createAlumno(alumno: Alumno): Observable<Alumno> {
-    return this.http.post<Alumno>(`${environment.apiURL}/alumno`, alumno);
+    return this.http.post<Alumno>(`${environment.apiURL}/conducta/alumno`, alumno);
   }
 
   getAlumnoById(dni: string): Observable<Alumno> {
-    return this.http.get<Alumno>(`${environment.apiURL}/alumno/${dni}`)
+    return this.http.get<Alumno>(`${environment.apiURL}/conducta/alumno/${dni}`)
   }
 
   getAllAlumnos(): Observable<Alumno[]> {
-    return this.http.get<Alumno[]>(`${environment.apiURL}/alumno`)
+    return this.http.get<Alumno[]>(`${environment.apiURL}/conducta/alumno`)
   }
 }

@@ -14,11 +14,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { MdbModalModule, MdbModalService } from 'mdb-angular-ui-kit/modal';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PartesModalComponent } from './partes-modal/partes-modal.component';
 import { TareasModalComponent } from './tareas-modal/tareas-modal.component';
 import { ModalDetalleSancionComponent } from './modal-detalle-sancion/modal-detalle-sancion.component';
 import { ModalSancionComponent } from './modal-sancion/modal-sancion.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -35,14 +36,16 @@ import { ModalSancionComponent } from './modal-sancion/modal-sancion.component';
     PartesModalComponent,
     TareasModalComponent,
     ModalDetalleSancionComponent,
-    ModalSancionComponent
+    ModalSancionComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     MdbModalModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [MdbModalService],
   bootstrap: [AppComponent]

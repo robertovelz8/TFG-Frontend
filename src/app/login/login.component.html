@@ -1,0 +1,39 @@
+<div class="d-flex align-items-center justify-content-center vh-100">
+    <div class="contenedor p-0" style="width: 100%; max-width: 800px;">
+        <div class="row">
+            <div class="col-12 col-md-9 login-form">
+                <h1>Login</h1>
+                <br>
+                <form>
+                    <div class="mb-3 input">
+                        <label for="username" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="username" placeholder="example@example.com"
+                            formControlName="email">
+                        <div *ngIf="(email?.dirty || email?.touched) && email?.errors">
+                            <small class="text-danger">
+                                Email o DAS es inválido o está vacío
+                            </small>
+                        </div>
+
+                    </div>
+
+                    <!-- Password -->
+                    <div class="mb-3 input">
+                        <label for="password" class="form-label">Contraseña:</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password"
+                            formControlName="password">
+                        <div>
+                            <small class="text-danger" slot="error"
+                                *ngIf="(password!.dirty || password!.touched) && password!.errors">
+                                La contraseña tiene que tener más de 6 dígitos y no tener espacios
+                            </small>
+                        </div>
+                        <br>
+
+                        <button expand="block" type="submit" class="boton">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

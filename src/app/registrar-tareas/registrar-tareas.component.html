@@ -9,7 +9,7 @@
             <p *ngIf="seleccionHechaSancion">Sanción seleccionada:
                 <span class="seleccion">
                     {{sancion.tipoSancion}}
-                    {{sancion.fecha | date: 'shortDate'}}
+                    {{sancion.fecha | date: 'dd/MM/yyyy'}}
                 </span>
             </p>
         </div>
@@ -17,11 +17,6 @@
         <div class="mb-3">
             <label for="titulo" class="form-label">TÍTULO:</label>
             <input class="form-control" type="text" name="titulo" id="titulo" placeholder="Ingrese el título" [(ngModel)]="tarea.titulo">
-        </div>
-
-        <div class="mb-3">
-            <label for="fecha-creacion" class="form-label">FECHA DE CREACIÓN:</label>
-            <input class="form-control" type="date" name="fecha-creacion" id="fecha-creacion" [(ngModel)]="tarea.fechaCreacion">
         </div>
 
         <div class="mb-3">
