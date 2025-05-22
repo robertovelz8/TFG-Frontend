@@ -1,39 +1,48 @@
-<div class="d-flex align-items-center justify-content-center vh-100">
-    <div class="contenedor p-0" style="width: 100%; max-width: 800px;">
-        <div class="row">
-            <div class="col-12 col-md-9 login-form">
-                <h1>Login</h1>
-                <br>
-                <form>
-                    <div class="mb-3 input">
-                        <label for="username" class="form-label">Email:</label>
-                        <input type="email" class="form-control" id="username" placeholder="example@example.com"
-                            formControlName="email">
-                        <div *ngIf="(email?.dirty || email?.touched) && email?.errors">
-                            <small class="text-danger">
-                                Email o DAS es inválido o está vacío
-                            </small>
-                        </div>
+<div class="d-flex align-items-center justify-content-center vh-100 login-bg">
+  <div class="card login-card shadow-lg p-4 rounded-4">
+    <div class="card-body">
+      <h2 class="text-center mb-4">Iniciar sesión</h2>
 
-                    </div>
-
-                    <!-- Password -->
-                    <div class="mb-3 input">
-                        <label for="password" class="form-label">Contraseña:</label>
-                        <input type="password" class="form-control" id="password" placeholder="Password"
-                            formControlName="password">
-                        <div>
-                            <small class="text-danger" slot="error"
-                                *ngIf="(password!.dirty || password!.touched) && password!.errors">
-                                La contraseña tiene que tener más de 6 dígitos y no tener espacios
-                            </small>
-                        </div>
-                        <br>
-
-                        <button expand="block" type="submit" class="boton">Login</button>
-                    </div>
-                </form>
-            </div>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo electrónico</label>
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            formControlName="email"
+            placeholder="ejemplo@correo.com"
+            [ngClass]="{ 'is-invalid': email?.invalid && (email?.dirty || email?.touched) }"
+          />
+          <div class="invalid-feedback">
+            Email o DAS es inválido o está vacío
+          </div>
         </div>
+
+        <!-- Contraseña -->
+        <div class="mb-3">
+          <label for="clave" class="form-label">Contraseña</label>
+          <input
+            type="password"
+            id="clave"
+            class="form-control"
+            formControlName="clave"
+            placeholder="Contraseña"
+            [ngClass]="{ 'is-invalid': clave?.invalid && (clave?.dirty || clave?.touched) }"
+          />
+          <div class="invalid-feedback">
+            La contraseña debe tener al menos 6 caracteres sin espacios.
+          </div>
+        </div>
+
+        <!-- Botón -->
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary btn-lg rounded-3" [disabled]="loginForm.invalid">
+            Entrar
+          </button>
+        </div>
+      </form>
     </div>
+  </div>
 </div>

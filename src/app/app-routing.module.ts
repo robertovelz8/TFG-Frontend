@@ -12,12 +12,12 @@ import { LogueadoGuard } from './guards/logueado.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: 'seguimiento', pathMatch: 'full'},
-  {path: 'seguimiento', component: SeguimientoAlumnadoComponent},
-  {path: 'registrar-sancion', component: RegistrarSancionComponent},
-  {path: 'modificar-sancion/:id', component: ModificarSancionComponent},
-  {path: 'consultar-sanciones', component: ConsultarSancionesComponent},
-  {path: 'registrar-tarea', component: RegistrarTareasComponent},
-  {path: 'consultar-tareas-alumno-expulsado', component: ConsultarTareasAlumnoExpulsadoComponent},
+  {path: 'seguimiento', component: SeguimientoAlumnadoComponent, canActivate: [AuthGuard]},
+  {path: 'registrar-sancion', component: RegistrarSancionComponent, canActivate: [AuthGuard]},
+  {path: 'modificar-sancion/:id', component: ModificarSancionComponent, canActivate: [AuthGuard]},
+  {path: 'consultar-sanciones', component: ConsultarSancionesComponent, canActivate: [AuthGuard]},
+  {path: 'registrar-tarea', component: RegistrarTareasComponent, canActivate: [AuthGuard]},
+  {path: 'consultar-tareas-alumno-expulsado', component: ConsultarTareasAlumnoExpulsadoComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent}
 ];
 

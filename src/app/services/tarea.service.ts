@@ -12,11 +12,11 @@ export class TareaService {
   constructor(private http: HttpClient) { }
 
   createTarea(tarea: Tarea): Observable<Tarea> {
-    return this.http.post<Tarea>(`${environment.apiURL}/tarea`, tarea)
+    return this.http.post<Tarea>(`${environment.apiURL}/conducta/tarea`, tarea)
   }
 
   getTareasAlumnoExpulsado(dni: string): Observable<Tarea[]> {
-    return this.http.get<Tarea[]>(`${environment.apiURL}/tarea/tareas-alumno-expulsado/${dni}`)
+    return this.http.get<Tarea[]>(`${environment.apiURL}/conducta/tarea/tareas-alumno-expulsado/${dni}`)
   }
 
 }

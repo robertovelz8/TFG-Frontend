@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { SeguimientoAlumnadoComponent } from './seguimiento-alumnado/seguimiento-alumnado.component';
 import { RegistrarSancionComponent } from './registrar-sancion/registrar-sancion.component';
 import { ModificarSancionComponent } from './modificar-sancion/modificar-sancion.component';
@@ -10,7 +9,7 @@ import { ConsultarSancionesComponent } from './consultar-sanciones/consultar-san
 import { RegistrarTareasComponent } from './registrar-tareas/registrar-tareas.component';
 import { ConsultarTareasAlumnoExpulsadoComponent } from './consultar-tareas-alumno-expulsado/consultar-tareas-alumno-expulsado.component';
 import { AlumnosModalComponent } from './alumnos-modal/alumnos-modal.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { MdbModalModule, MdbModalService } from 'mdb-angular-ui-kit/modal';
@@ -20,12 +19,12 @@ import { TareasModalComponent } from './tareas-modal/tareas-modal.component';
 import { ModalDetalleSancionComponent } from './modal-detalle-sancion/modal-detalle-sancion.component';
 import { ModalSancionComponent } from './modal-sancion/modal-sancion.component';
 import { LoginComponent } from './login/login.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SidebarComponent,
     SeguimientoAlumnadoComponent,
     RegistrarSancionComponent,
     ModificarSancionComponent,
@@ -47,7 +46,13 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [MdbModalService],
+  providers: [MdbModalService, 
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

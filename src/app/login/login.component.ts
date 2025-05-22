@@ -19,13 +19,12 @@ export class LoginComponent {
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-      emailDas: ['', [Validators.required, this.emailDasValidator]],
-      password: ['', [Validators.required, Validators.minLength(6), this.noSpacesValidator]]
+      email: ['', [Validators.required, this.emailValidator]],
+      clave: ['', [Validators.required, Validators.minLength(6), this.noSpacesValidator]]
     });
   }
 
-  // Validador personalizado para el campo emailDas
-  emailDasValidator(control: AbstractControl): ValidationErrors | null {
+  emailValidator(control: AbstractControl): ValidationErrors | null {
     const email = control.value;
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -46,9 +45,9 @@ export class LoginComponent {
   }
 
   noSpacesValidator(control: AbstractControl): ValidationErrors | null {
-    const password = control.value;
+    const clave = control.value;
 
-    if (/\s/.test(password)) {
+    if (/\s/.test(clave)) {
       return { noSpaces: 'La contraseña no debe contener espacios.' };
     }
 
@@ -58,18 +57,17 @@ export class LoginComponent {
   get email() {
     return this.loginForm.get('email');
   }
-  get password() {
-    return this.loginForm.get('password');
+  get clave() {
+    return this.loginForm.get('clave');
   }
 
   login() {
 
     let usu: LoginInterface = {
-      email: this.loginForm.value.emailDas,
-      password: this.loginForm.value.password
+      email: this.loginForm.value.email,
+      clave: this.loginForm.value.clave
     }
-
-    // Llamada al servicio de login
+    console.log('Payload que se envía:', usu);
     this.loginService.login(usu).subscribe(
       (resp) => {
         this.token = resp.token;

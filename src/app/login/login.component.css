@@ -1,34 +1,26 @@
-.contenedor {
-  text-align: center;
-  font-family: 'Inter', sans-serif;
-  border-radius: 20px;
+.login-bg {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
 }
 
-.login-form {
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  padding: 20px;
-}
-
-.login-form label {
-  display: block;
-  text-align: left;
+.login-card {
   width: 100%;
+  max-width: 400px;
+  background-color: #ffffffcc;
+  backdrop-filter: blur(8px);
+  border: none;
 }
 
-h1 {
-  font-weight: bold;
-  color: rgb(127, 229, 255);
+input.form-control {
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  font-size: 1rem;
 }
 
-.input{
-  padding: 0px 40px 0 40px;
+button.btn {
+  transition: all 0.3s ease;
 }
 
-.boton {
-  font-weight: bold;
-}
-
-a {
-  text-align: center;
+button.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }

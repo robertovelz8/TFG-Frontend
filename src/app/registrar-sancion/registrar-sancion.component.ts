@@ -6,6 +6,7 @@ import { AlumnosModalComponent } from '../alumnos-modal/alumnos-modal.component'
 import { Alumno } from '../interfaces/alumno';
 import { PartesModalComponent } from '../partes-modal/partes-modal.component';
 import { Parte } from '../interfaces/parte';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registrar-sancion',
@@ -106,9 +107,21 @@ export class RegistrarSancionComponent {
 
   registrarSancion(): void {
     if (!this.seleccionHechaAlumno || !this.seleccionHechaParte || !this.tipoSeleccionado || !this.sancion.duracion || !this.sancion.fecha) {
-      alert("Por favor, completa todos los campos obligatorios.");
+      Swal.fire({
+        icon: 'warning',
+        title: 'Campos incompletos',
+        text: 'Por favor, completa todos los campos obligatorios.',
+        confirmButtonText: 'Aceptar'
+      });
       return;
     }
+
     this.createService(this.sancion);
+    Swal.fire({
+      icon: 'success',
+      title: 'Sanción registrada',
+      text: 'La sanción se ha registrado correctamente.',
+      confirmButtonText: 'Aceptar'
+    });
   }
 }

@@ -5,6 +5,7 @@ import { Sancion } from '../interfaces/sancion';
 import { Tarea } from '../interfaces/tarea';
 import { TareaService } from '../services/tarea.service';
 import { formatDate } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registrar-tareas',
@@ -69,13 +70,25 @@ export class RegistrarTareasComponent implements OnInit {
   }
 
   registrarTarea(): void {
+    
     if (!this.seleccionHechaSancion || !this.estadoSeleccionado
       || !this.tarea.titulo
       || !this.tarea.fechaLimite || !this.tarea.descripcion) {
-      alert("Por favor, completa todos los campos obligatorios.");
+
+      Swal.fire({
+        icon: 'warning',
+        title: 'Campos incompletos',
+        text: 'Por favor, completa todos los campos obligatorios.',
+        confirmButtonText: 'Aceptar'
+      });
       return;
     }
-    
     this.createTarea(this.tarea);
+    Swal.fire({
+      icon: 'success',
+      title: 'Tarea registrada',
+      text: 'La tarea se ha registrado correctamente.',
+      confirmButtonText: 'Aceptar'
+    });
   }
 }

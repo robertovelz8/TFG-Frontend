@@ -11,6 +11,8 @@ export class SancionService {
 
   constructor(private http: HttpClient) { }
 
+  
+
   createSancion(sancion: Sancion): Observable<Sancion> {
     return this.http.post<Sancion>(`${environment.apiURL}/conducta/sancion`, sancion);
   }

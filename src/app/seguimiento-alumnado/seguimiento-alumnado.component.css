@@ -1,27 +1,62 @@
-.content-casos-de-uso {
-    margin-top: 7%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    height: 70%;
+.contenedor-central {
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-button {
-    max-height: 150px !important;
+.content-casos-de-uso {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px 80px;
+    padding: 40px;
+    justify-items: center;
+    align-items: center;
+}
+
+.btn-caso {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    min-height: 100px;
     background-color: #4C74B9;
     border: none;
     border-radius: 12px;
-    padding: 10px 20px;
-    font-size: 0.9rem;
+    padding: 15px 25px;
+    font-size: 1rem;
     font-weight: 600;
     color: white;
+    text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
-button:hover {
+.btn-caso:hover {
     background-color: #3e5a89;
     transform: scale(1.05); 
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     cursor: pointer;
 }
 
+.btn-caso::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff9c4;
+  color: #333;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.btn-caso:hover::after {
+  opacity: 1;
+}

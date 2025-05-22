@@ -1,6 +1,15 @@
-<div class="content-casos-de-uso" style="margin-right: 2%;">
-    <button class="btn btn-primary m-3" [routerLink]="['/registrar-sancion']">Registrar Sanción</button>
-    <button class="btn btn-primary m-3" [routerLink]="['/consultar-sanciones']">Consultar Lista de Sanciones</button>
-    <button class="btn btn-primary m-3" [routerLink]="['/registrar-tarea']">Registro de tareas durante expulsión</button>
-    <button class="btn btn-primary m-3" [routerLink]="['/consultar-tareas-alumno-expulsado']">Consulta de tareas del alumnado expulsado</button>
+<div class="contenedor-central">
+  <div class="content-casos-de-uso">
+    <button class="btn-caso" [routerLink]="['/registrar-sancion']"
+      data-tooltip="Registra una nueva sanción para un alumno">Registrar Sanción</button>
+
+    <button class="btn-caso" [routerLink]="['/consultar-sanciones']"
+      data-tooltip="Consulta todas las sanciones registradas">Consultar Lista de Sanciones</button>
+
+    <button class="btn-caso" [routerLink]="['/registrar-tarea']"
+      data-tooltip="Registra tareas que debe realizar el alumnado expulsado">Registro de tareas durante expulsión</button>
+
+    <button class="btn-caso" [routerLink]="['/consultar-tareas-alumno-expulsado']"
+      data-tooltip="Consulta las tareas asignadas a un alumno expulsado">Consulta de tareas del alumnado expulsado</button>
+  </div>
 </div>
