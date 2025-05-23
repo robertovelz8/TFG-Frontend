@@ -4,7 +4,6 @@
       <h2 class="text-center mb-4">Iniciar sesión</h2>
 
       <form [formGroup]="loginForm" (ngSubmit)="login()">
-        <!-- Email -->
         <div class="mb-3">
           <label for="email" class="form-label">Correo electrónico</label>
           <input
@@ -16,11 +15,10 @@
             [ngClass]="{ 'is-invalid': email?.invalid && (email?.dirty || email?.touched) }"
           />
           <div class="invalid-feedback">
-            Email o DAS es inválido o está vacío
+            Email es inválido o está vacío
           </div>
         </div>
 
-        <!-- Contraseña -->
         <div class="mb-3">
           <label for="clave" class="form-label">Contraseña</label>
           <input
@@ -36,7 +34,6 @@
           </div>
         </div>
 
-        <!-- Botón -->
         <div class="d-grid">
           <button type="submit" class="btn btn-primary btn-lg rounded-3" [disabled]="loginForm.invalid">
             Entrar

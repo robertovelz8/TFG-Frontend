@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { AuthService } from '../services/auth.service';
-import { NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter, map, mergeMap } from 'rxjs';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -11,11 +11,11 @@ import Swal from 'sweetalert2';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit {
-  title = 'GESTIÓN DE SEGUIMIENTO ALUMNADO';
+  title = '';
   user: string | null = null;
   showHeader = true;
 
-  constructor(private location: Location, private authService: AuthService, private router: Router) {
+  constructor(private location: Location, private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute) {
   }
 
   volverAtras() {
@@ -23,6 +23,21 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.router.events
+    .pipe(
+      filter(event => event instanceof NavigationEnd),
+      map(() => this.activatedRoute),
+      map(route => {
+        while (route.firstChild) route = route.firstChild;
+        return route;
+      }),
+      mergeMap(route => route.data)
+    )
+    .subscribe(data => {
+      this.title = data['title'] || 'Seguimiento Conducta Alumnado';
+    });
+
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: any) => {

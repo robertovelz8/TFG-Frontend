@@ -13,11 +13,11 @@ import { LogueadoGuard } from './guards/logueado.guard';
 const routes: Routes = [
   {path: '', redirectTo: 'seguimiento', pathMatch: 'full'},
   {path: 'seguimiento', component: SeguimientoAlumnadoComponent, canActivate: [AuthGuard]},
-  {path: 'registrar-sancion', component: RegistrarSancionComponent, canActivate: [AuthGuard]},
-  {path: 'modificar-sancion/:id', component: ModificarSancionComponent, canActivate: [AuthGuard]},
-  {path: 'consultar-sanciones', component: ConsultarSancionesComponent, canActivate: [AuthGuard]},
-  {path: 'registrar-tarea', component: RegistrarTareasComponent, canActivate: [AuthGuard]},
-  {path: 'consultar-tareas-alumno-expulsado', component: ConsultarTareasAlumnoExpulsadoComponent, canActivate: [AuthGuard]},
+  {path: 'registrar-sancion', component: RegistrarSancionComponent, canActivate: [AuthGuard], data: { title: 'Registrar sanción' }},
+  {path: 'modificar-sancion/:id', component: ModificarSancionComponent, canActivate: [AuthGuard], data: { title: 'Modificar sanción' }},
+  {path: 'consultar-sanciones', component: ConsultarSancionesComponent, canActivate: [AuthGuard], data: { title: 'Consultar sanciones' }},
+  {path: 'registrar-tarea', component: RegistrarTareasComponent, canActivate: [AuthGuard], data: { title: 'Registrar tarea' }},
+  {path: 'consultar-tareas-alumno-expulsado', component: ConsultarTareasAlumnoExpulsadoComponent, canActivate: [AuthGuard], data: { title: 'Consultar tareas del alumno expulsado' }},
   {path: 'login', component: LoginComponent}
 ];
 
