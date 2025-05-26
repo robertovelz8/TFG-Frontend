@@ -2,11 +2,11 @@
     <form class="form-tarea" (ngSubmit)="registrarTarea()" #tareaForm="ngForm">
         <div class="mb-3">
             <label for="buscar-sancion-btn" class="form-label">SANCIÓN:</label>
-            <button type="button" class="btn btn-outline-primary w-100" id="buscar-sancion-btn"
+            <button type="button" data-cy="abrir-modal-sancion" class="btn btn-outline-primary w-100" id="buscar-sancion-btn"
                 (click)="abrirModalSancion()">
                 Buscar Sanción
             </button>
-            <p *ngIf="seleccionHechaSancion">Sanción seleccionada:
+            <p *ngIf="seleccionHechaSancion" data-cy="sancion-seleccionada">Sanción seleccionada:
                 <span class="seleccion">
                     {{sancion.tipoSancion}}
                     {{sancion.fecha | date: 'dd/MM/yyyy'}}

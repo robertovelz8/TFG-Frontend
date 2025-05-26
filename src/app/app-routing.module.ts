@@ -8,7 +8,6 @@ import { RegistrarTareasComponent } from './registrar-tareas/registrar-tareas.co
 import { ConsultarTareasAlumnoExpulsadoComponent } from './consultar-tareas-alumno-expulsado/consultar-tareas-alumno-expulsado.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
-import { LogueadoGuard } from './guards/logueado.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: 'seguimiento', pathMatch: 'full'},

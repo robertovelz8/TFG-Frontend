@@ -1,38 +1,36 @@
 <div *ngIf="showHeader"
-    class="header d-flex align-items-center justify-content-between p-3 shadow-sm rounded bg-white position-relative">
+    class="header d-flex align-items-center justify-content-between p-3 shadow-sm rounded bg-white position-relative"
+    data-cy="header">
 
-    <!-- Zona izquierda: Logo + Controles más alejados -->
     <div class="d-flex align-items-center gap-4 flex-shrink-0">
-        <a href="https://blogsaverroes.juntadeandalucia.es/iestorrredelosguzmanes/">
+
+        <a href="https://blogsaverroes.juntadeandalucia.es/iestorrredelosguzmanes/" data-cy="instituto-link">
             <img src="../../assets/imgs/logo-instituto.png" class="logo-header" alt="Logo instituto">
         </a>
 
-        <!-- Controles más a la derecha y más pequeños -->
         <div class="d-flex align-items-center gap-3 ms-5 ps-2">
-            <div class="container-home" routerLink="/seguimiento">
+            <div class="container-home" routerLink="/seguimiento" data-cy="home-btn">
                 <img src="../../assets/imgs/Home.png" class="icon-header small-icon" alt="Inicio">
             </div>
-            <div class="container-back">
+            <div class="container-back" data-cy="volver-btn">
                 <img src="../../assets/imgs/Volver.png" class="icon-header small-icon" alt="Volver"
                     (click)="volverAtras()">
             </div>
         </div>
     </div>
 
-    <!-- Título centrado absoluto -->
-    <div class="position-absolute start-50 translate-middle-x">
+    <div class="position-absolute start-50 translate-middle-x" data-cy="page-title">
         <div class="container-title-section px-4 py-2 fw-bold rounded text-center">
             {{ title }}
         </div>
     </div>
 
-    <!-- Usuario y logout -->
     <div class="d-flex align-items-center gap-2 flex-shrink-0">
-        <div class="container-user text-end px-4 py-2 rounded">
-            USUARIO: <span class="fw-bold">{{ user }}</span>
+        <div class="container-user text-end px-4 py-2 rounded" data-cy="user-info">
+            USUARIO: <span class="fw-bold" data-cy="user-email">{{ user }}</span>
         </div>
         <i class="fa-solid fa-right-from-bracket fs-3 text-danger" (click)="logout()" title="Cerrar sesión"
-            style="cursor: pointer;"></i>
+            style="cursor: pointer;" data-cy="logout-btn"></i>
     </div>
 
 </div>

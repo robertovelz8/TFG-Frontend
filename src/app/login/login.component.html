@@ -13,6 +13,7 @@
             formControlName="email"
             placeholder="ejemplo@correo.com"
             [ngClass]="{ 'is-invalid': email?.invalid && (email?.dirty || email?.touched) }"
+            data-cy="email"
           />
           <div class="invalid-feedback">
             Email es inválido o está vacío
@@ -28,6 +29,7 @@
             formControlName="clave"
             placeholder="Contraseña"
             [ngClass]="{ 'is-invalid': clave?.invalid && (clave?.dirty || clave?.touched) }"
+            data-cy="clave"
           />
           <div class="invalid-feedback">
             La contraseña debe tener al menos 6 caracteres sin espacios.
@@ -35,7 +37,7 @@
         </div>
 
         <div class="d-grid">
-          <button type="submit" class="btn btn-primary btn-lg rounded-3" [disabled]="loginForm.invalid">
+          <button type="submit" class="btn btn-primary btn-lg rounded-3" [disabled]="loginForm.invalid" data-cy="login-btn">
             Entrar
           </button>
         </div>

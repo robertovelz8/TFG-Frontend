@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class ConsultarTareasAlumnoExpulsadoComponent {
 
-  tareas: Tarea[] = [];
+  tareas: Tarea[] = [];   
   modalRefAlumno: MdbModalRef<AlumnosModalComponent> | null = null;
 
   hayAlumno = false;

@@ -1,12 +1,12 @@
 <div class="container-fluid p-4">
     <div class="d-flex align-items-center mb-3 gap-3">
         <h5 class="fw-bold mb-0">Alumno:</h5>
-        <button type="button" class="btn btn-alumno shadow-sm px-3 py-1 d-flex align-items-center"
+        <button type="button" data-cy="abrir-modal-alumno" class="btn btn-alumno shadow-sm px-3 py-1 d-flex align-items-center"
             id="buscar-alumno-btn" (click)="abrirModalAlumno()">
             <i class="fas fa-user-search me-2"></i> Buscar alumno
         </button>
     </div>
-    <p *ngIf="hayAlumno">Alumno seleccionado: <span class="fw-bold">{{alumno.nombre}} {{alumno.apellidos}}</span></p>
+    <p *ngIf="hayAlumno" data-cy="alumno-seleccionado">Alumno seleccionado: <span class="fw-bold">{{alumno.nombre}} {{alumno.apellidos}}</span></p>
 
     <div *ngIf="hayAlumno; else sinAlumno">
         <div class="card shadow rounded-4 border-0">

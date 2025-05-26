@@ -2,11 +2,11 @@
   <form class="form-sancion" (ngSubmit)="registrarSancion()" #sancionForm="ngForm">
     <div class="mb-3">
       <label for="buscar-alumno-btn" class="form-label">ALUMNO:</label>
-      <button type="button" class="btn btn-outline-primary w-100" id="buscar-alumno-btn" (click)="abrirModalAlumno()">
+      <button type="button" class="btn btn-outline-primary w-100" id="buscar-alumno-btn" data-cy="abrir-modal-alumno" (click)="abrirModalAlumno()">
         Buscar alumno
       </button>
       <p *ngIf="seleccionHechaAlumno">Alumno seleccionado:
-        <span class="seleccion">
+        <span class="seleccion" data-cy="alumno-seleccionado">
           {{alumno.nombre}}
           {{alumno.apellidos}}
         </span>
@@ -25,11 +25,11 @@
 
     <div class="mb-3">
       <label class="form-label">PARTE:</label>
-      <button type="button" class="btn btn-outline-primary w-100" id="buscar-alumno-btn" (click)="abrirModalParte()">
+      <button type="button" class="btn btn-outline-primary w-100" id="buscar-parte-btn" data-cy="abrir-modal-parte" (click)="abrirModalParte()">
         Buscar parte
       </button>
       <p *ngIf="seleccionHechaParte">Parte seleccionado:
-        <span class="seleccion">
+        <span class="seleccion" data-cy="parte-seleccionado">
           {{parte.motivo}} - {{parte.lugar}} ({{parte.fecha | date: 'dd-MM-yyyy'}})
         </span>
       </p>
