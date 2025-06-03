@@ -73,6 +73,7 @@ export class LoginComponent {
         this.token = resp.token;
         this.authService.setToken(this.token);
         this.router.navigate(["/seguimiento"]);
+        window.location.reload();
       },
       error => {
         console.log("Autenticación Fallida: ", error)
