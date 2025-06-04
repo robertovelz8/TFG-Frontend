@@ -1,4 +1,4 @@
-describe('Registrar Tarea - Modal de Sanciones', () => {
+describe('Registrar Tarea', () => {
 
     before(() => {
         cy.login();
@@ -8,7 +8,7 @@ describe('Registrar Tarea - Modal de Sanciones', () => {
         cy.visit('/seguimiento');
     });
 
-    it('abre el modal de sanciones, busca, selecciona y confirma', () => {
+    it('modal de sanciones y registrar la tarea', () => {
         cy.contains('button', 'Registro de tareas durante expulsión').click();
 
         cy.url().should('include', '/registrar-tarea');
@@ -32,6 +32,30 @@ describe('Registrar Tarea - Modal de Sanciones', () => {
         cy.get('.modal-title').should('not.exist');
 
         cy.get('[data-cy=sancion-seleccionada]').should('contain.text', '01/03/2024');
+
+        cy.get('input[name="titulo"]').type('Tarea de matemáticas');
+
+        const hoy = new Date().toISOString().split('T')[0];
+        cy.get('input[name="fecha-limite"]').clear().type(hoy);
+
+        cy.get('.dropdown-toggle').click();
+        cy.get('.dropdown-menu li a').eq(1).click();
+
+        cy.get('.dropdown-toggle').should('not.contain.text', 'Selecciona una opción');
+        cy.get('textarea[name="descripcion"]').type('Realizar actividades 7 y 8 de la pág 78 del libro de texto.');
+        cy.intercept('POST', 'http://localhost:8080/guzpasen/conducta/tarea', {
+            statusCode: 201,
+            body: { id: 1, message: 'Tarea creada' }
+        }).as('createTarea');
+
+        cy.contains('button', 'REGISTRAR TAREA').click();
+
+        cy.wait('@createTarea');
+
+        cy.get('.swal2-popup').should('exist');
+        cy.get('.swal2-title').should('contain', 'Tarea registrada');
+        cy.get('.swal2-confirm').click();
+
     });
 
 });
