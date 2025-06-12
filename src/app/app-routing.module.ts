@@ -17,7 +17,8 @@ const routes: Routes = [
   {path: 'consultar-sanciones', component: ConsultarSancionesComponent, canActivate: [AuthGuard], data: { title: 'Consultar sanciones' }},
   {path: 'registrar-tarea', component: RegistrarTareasComponent, canActivate: [AuthGuard], data: { title: 'Registrar tarea' }},
   {path: 'consultar-tareas-alumno-expulsado', component: ConsultarTareasAlumnoExpulsadoComponent, canActivate: [AuthGuard], data: { title: 'Consultar tareas del alumno expulsado' }},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  { path: '**', redirectTo: 'login' }
 ];
 
 @NgModule({
