@@ -25,18 +25,18 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
 
     this.router.events
-    .pipe(
-      filter(event => event instanceof NavigationEnd),
-      map(() => this.activatedRoute),
-      map(route => {
-        while (route.firstChild) route = route.firstChild;
-        return route;
-      }),
-      mergeMap(route => route.data)
-    )
-    .subscribe(data => {
-      this.title = data['title'] || 'Seguimiento Conducta Alumnado';
-    });
+      .pipe(
+        filter(event => event instanceof NavigationEnd),
+        map(() => this.activatedRoute),
+        map(route => {
+          while (route.firstChild) route = route.firstChild;
+          return route;
+        }),
+        mergeMap(route => route.data)
+      )
+      .subscribe(data => {
+        this.title = data['title'] || 'Seguimiento Conducta Alumnado';
+      });
 
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
@@ -47,7 +47,9 @@ export class HeaderComponent implements OnInit {
         this.showHeader = currentUrl !== '/login' && !!token;
       });
 
-    this.user = this.authService.getEmailFromToken();
+    this.authService.email$.subscribe(email => {
+      this.user = email;
+    });
   }
 
   logout() {

@@ -10,6 +10,10 @@ export class AuthService {
   private tokenSubject = new BehaviorSubject<string | null>(this.getToken());
   token$ = this.tokenSubject.asObservable();
 
+  private emailSubject = new BehaviorSubject<string | null>(this.getEmailFromToken());
+  email$ = this.emailSubject.asObservable();
+
+
   constructor(private router: Router) { }
 
   getToken(): string | null {
@@ -23,15 +27,19 @@ export class AuthService {
       localStorage.removeItem('token');
     }
     this.tokenSubject.next(token);
+
+    const email = token ? this.getEmailFromToken() : null;
+    this.emailSubject.next(email);
   }
+
 
   logout(): void {
     localStorage.removeItem('token');
-
     this.tokenSubject.next(null);
-
+    this.emailSubject.next(null);
     this.router.navigate(['/login']);
   }
+
 
   decodeJWT(token: string) {
     const payloadBase64 = token.split('.')[1];
@@ -48,7 +56,7 @@ export class AuthService {
     if (!token) return null;
 
     const payload = JSON.parse(atob(token.split('.')[1]));
-    return payload?.sub || payload?.email || null; 
+    return payload?.sub || payload?.email || null;
   }
 
 }
